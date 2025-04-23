@@ -1,7 +1,6 @@
 class Board
   def initialize()
     @board = {
-      :code => ["_", "_", "_", "_"],
       :guess_and_pegs => Array.new()
     }
 
@@ -17,6 +16,14 @@ class Board
       puts arr[0].join(" ") + " #{index + 1} " + arr[1].join(" ")
     end
     puts " "
+  end
+
+  def code
+    return @board[:code]
+  end
+
+  def save_code(code)
+    @board[:code] = code
   end
 
   def update_guess(guess)
