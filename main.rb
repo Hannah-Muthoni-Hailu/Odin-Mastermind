@@ -4,12 +4,13 @@ require_relative 'Players/computer'
 
 def game_play
   # Initialize new board
-  board = Board.new
+  code_maker = Computer.new
+  print code_maker.create_code
 
-  board.update_guess(['y', 'g', 'b', 'r'])
-  board.update_pegs(['b', 'b'])
-  puts board.win_check
-  board.display
+  guess = ['y', 'b', 'r', 'g']
+
+  print code_maker.check_guess(guess)
+
 end
 
 game_play
