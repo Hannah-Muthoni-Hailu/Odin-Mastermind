@@ -1,25 +1,28 @@
+# frozen_string_literal: true
+
+# Controls the board
 class Board
-  def initialize()
+  def initialize
     @board = {
-      :guess_and_pegs => Array.new()
+      guess_and_pegs: []
     }
 
     12.times do
-      @board[:guess_and_pegs].push([["_", "_", "_", "_"], ["_", "_", "_", "_"]])
+      @board[:guess_and_pegs].push([%w[_ _ _ _], %w[_ _ _ _]])
     end
     @plays = 0
   end
 
-  def display()
-    puts " "
+  def display
+    puts ' '
     @board[:guess_and_pegs].each_with_index do |arr, index|
-      puts arr[0].join(" ") + " #{index + 1} " + arr[1].join(" ")
+      puts arr[0].join(' ') + " #{index + 1} " + arr[1].join(' ')
     end
-    puts " "
+    puts ' '
   end
 
   def code
-    return @board[:code]
+    @board[:code]
   end
 
   def save_code(code)
@@ -35,8 +38,8 @@ class Board
   end
 
   def win_check
-    result =  @board[:guess_and_pegs][@plays][0] == ['b', 'b', 'b', 'b']
+    result =  @board[:guess_and_pegs][@plays][0] == %w[b b b b]
     @plays += 1
-    return result
+    result
   end
 end

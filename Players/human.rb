@@ -30,7 +30,7 @@ class Human
 
   def check_guess(guess)
     loop do
-      p "Cmmputer guess is #{guess.join(',')}"
+      p "Computer guess is #{guess.join(',')}"
       puts 'Please check the computer\'s guess and enter a "b" for every correct color in the correct position or a "w"
 for a correct color in the wrong position or press enter if none is correct'
       puts 'Please enter the letters above seperated by commas'

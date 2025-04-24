@@ -33,6 +33,7 @@ def game_play
     board.update_guess(player_guess)
 
     # Obtain pegs and update board
+    p "Here is your code #{board.code.join(',')}"
     pegs = code_maker.check_guess(player_guess)
     board.update_pegs(pegs)
 
