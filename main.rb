@@ -13,7 +13,7 @@ def game_play
   choice = gets.chomp.upcase
 
   # Initialize code maker and breaker
-  if choice == 'M'
+  if choice == 'B'
     code_maker = Computer.new
     code_breaker = Human.new
   else

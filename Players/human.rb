@@ -1,16 +1,49 @@
+# frozen_string_literal: true
+
+# Controls the human player
 class Human
   def guess
-    while true
-      puts "Please enter a guess. Present colors are: red = r green = g blue = b yellow = y o = orange p = pink"
-      puts "Please enter the letters above seperated by commas"
+    loop do
+      puts 'Please enter a guess. Present colors are: red = r green = g blue = b yellow = y o = orange p = pink'
+      puts 'Please enter the letters above seperated by commas'
 
-      colors = ['r', 'g', 'b', 'y', 'o', 'p']
-      player_guess = gets.chomp.split(",").collect{ |e| e.strip }
-      if player_guess.length == 4 && (player_guess - colors).empty?# Check that an appropriate guess has been entered
-        return player_guess
-      else
-        puts "Wrong input. Enter again"
-      end
+      colors = %w[r g b y o p]
+      res = check_input(colors)
+      return res if res != 'Wrong input'
+
+      puts 'Wrong input. Enter again'
     end
+  end
+
+  def create_code
+    loop do
+      puts 'Please enter a code. Present colors are: red = r green = g blue = b yellow = y o = orange p = pink'
+      puts 'Please enter the letters above seperated by commas'
+
+      colors = %w[r g b y o p]
+      res = check_input(colors)
+      return res if res != 'Wrong input'
+
+      puts 'Wrong input. Enter again'
+    end
+  end
+
+  def check_guess
+    loop do
+      puts 'Please check the computer\'s guess and enter a "b" for every correct color in the correct position or a "w"
+      for a correct color in the wrong position'
+      puts 'Please enter the letters above seperated by commas'
+
+      colors = %w[b w]
+      res = check_input(colors)
+      return res if res != 'Wrong input'
+
+      puts 'Wrong input. Enter again'
+    end
+  end
+
+  def check_input(colors)
+    player_inp = gets.chomp.downcase.split(',').collect(&:strip)
+    player_inp.length == 4 && (player_inp - colors).empty? ? player_inp : 'Wrong input'
   end
 end
