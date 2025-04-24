@@ -28,15 +28,16 @@ class Human
     end
   end
 
-  def check_guess
+  def check_guess(guess)
     loop do
+      p "Cmmputer guess is #{guess.join(',')}"
       puts 'Please check the computer\'s guess and enter a "b" for every correct color in the correct position or a "w"
-      for a correct color in the wrong position'
+for a correct color in the wrong position or press enter if none is correct'
       puts 'Please enter the letters above seperated by commas'
 
       colors = %w[b w]
-      res = check_input(colors)
-      return res if res != 'Wrong input'
+      pegs = gets.chomp.downcase.split(',').collect(&:strip)
+      return pegs if pegs.empty? || (pegs - colors).empty? # Check that a valid input has been entered
 
       puts 'Wrong input. Enter again'
     end
