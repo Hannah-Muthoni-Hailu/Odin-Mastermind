@@ -28,4 +28,8 @@ class Computer
 
     result
   end
+
+  def guess
+    
+  end
 end
